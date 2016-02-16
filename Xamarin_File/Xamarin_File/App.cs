@@ -9,19 +9,6 @@ using Xamarin_File.Pages;
 
 namespace Xamarin_File
 {
-/*        public class App : Application // superclass new in 1.3
-        {
-            public App()
-            {
-                var tabs = new TabbedPage();
-
-                tabs.Children.Add(new LoadResourceTextBig { Title = "1 MB Text File"});
-
-                tabs.Children.Add(new LoadResourceTextSmall { Title = "512KB Text File"});
-
-                MainPage = tabs;
-            }
-        }*/
     
         public class App : Application
         {
