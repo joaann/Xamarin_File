@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Xamarin_File.Pages;assembly=Xamarin_File"
+             x:Class="Xamarin_File.Pages.FileSystemPage">
+  <StackLayout Spacing="10" Padding="10">
+    <Button x:Name="writeBigButton" Text ="Write 1 MB file"/>
+    <Button x:Name="readBigButton" Text ="Read 1 MB file"/>
+    <Button x:Name="writeSmallButton" Text ="Write 512kB MB file"/>
+    <Button x:Name="readSmallButton" Text ="Read 512kB file"/>
+  </StackLayout>
+</ContentPage>
