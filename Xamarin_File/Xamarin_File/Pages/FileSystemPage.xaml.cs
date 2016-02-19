@@ -21,7 +21,9 @@ namespace Xamarin_File.Pages
 
             writeBigButton.Clicked += async (sender, args) =>
             {
-                try{
+                var watch = Stopwatch.StartNew();
+                try
+                {
                     IFolder rootFolder = FileSystem.Current.LocalStorage;
 
                     //Debug.WriteLine("Rootfolder: " + rootFolder.Path);
@@ -42,16 +44,18 @@ namespace Xamarin_File.Pages
                     }
                     //Debug.WriteLine("Wrote: "+text);
                     await file.WriteAllTextAsync(text);
-                    await DisplayAlert("Wrote to file", "1MB file written", "OK");
                 }
                 catch(Exception ex)
                 {
                     await DisplayAlert("Error", "Some Error: " + ex, "OK");
                 }
-
+                watch.Stop();
+                long ms1 = watch.ElapsedMilliseconds;
+                await DisplayAlert("Wrote to file", "1MB file written in " + ms1 + " ms", "OK");
             };
             readBigButton.Clicked += async (sender, args) =>
             {
+                var watch = Stopwatch.StartNew();
                 try{
                     IFolder rootFolder = FileSystem.Current.LocalStorage;
                     //Debug.WriteLine("Rootfolder: "+rootFolder.Path);
@@ -61,15 +65,18 @@ namespace Xamarin_File.Pages
                     //Debug.WriteLine("ReadFile: "+file.Path);
                     string contents = await file.ReadAllTextAsync();
                     //Debug.WriteLine(contents);
-                    await DisplayAlert("1MB contents: ", contents,"OK");
 
                 }
                 catch(Exception ex){
                     await DisplayAlert("Error", "Some Error: " + ex, "OK");
                 }
+                watch.Stop();
+                long ms2 = watch.ElapsedMilliseconds;
+                await DisplayAlert("Read 1MB File", "Read file in " + ms2 +" ms", "OK");
             };
             writeSmallButton.Clicked += async (sender, args) =>
             {
+                var watch = Stopwatch.StartNew();
                 try
                 {
                     IFolder rootFolder = FileSystem.Current.LocalStorage;
@@ -92,15 +99,18 @@ namespace Xamarin_File.Pages
                     }
                     //Debug.WriteLine("Wrote: "+text);
                     await file.WriteAllTextAsync(text);
-                    await DisplayAlert("Wrote to file", "512kb file written", "OK");
                 }
                 catch(Exception ex)
                 {
                     await DisplayAlert("Error", "Some Error: " + ex, "OK");
                 }
+                watch.Stop();
+                long ms3 = watch.ElapsedMilliseconds;
+                await DisplayAlert("Wrote to file", "512kb file written in " + ms3 + " ms", "OK");
             };
             readSmallButton.Clicked += async (sender, args) =>
             {
+                var watch = Stopwatch.StartNew();
                 try
                 {
                     IFolder rootFolder = FileSystem.Current.LocalStorage;
@@ -111,13 +121,15 @@ namespace Xamarin_File.Pages
                     //Debug.WriteLine("ReadFile: " + file.Path);
                     string contents = await file.ReadAllTextAsync();
                     //Debug.WriteLine(contents);
-                    await DisplayAlert("512kb contents: ", contents, "OK");
 
                 }
                 catch (Exception ex)
                 {
                     await DisplayAlert("Error", "Some Error: " + ex, "OK");
                 }
+                watch.Stop();
+                long ms4 = watch.ElapsedMilliseconds;
+                await DisplayAlert("Read 512kb file", "Read file in "+ms4+" ms", "OK");
             };
         }
     }

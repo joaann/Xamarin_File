@@ -6,7 +6,7 @@
   <StackLayout Spacing="10" Padding="10">
     <Button x:Name="writeBigButton" Text ="Write 1 MB file"/>
     <Button x:Name="readBigButton" Text ="Read 1 MB file"/>
-    <Button x:Name="writeSmallButton" Text ="Write 512kB MB file"/>
+    <Button x:Name="writeSmallButton" Text ="Write 512kB file"/>
     <Button x:Name="readSmallButton" Text ="Read 512kB file"/>
   </StackLayout>
 </ContentPage>
